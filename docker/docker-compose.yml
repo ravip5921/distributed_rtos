@@ -1,0 +1,25 @@
+
+services:
+  worker1:
+    image: dist-rtos-worker
+    build: ./worker
+    volumes:
+      - ../src/worker:/app
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+
+  worker2:
+    image: dist-rtos-worker
+    build: ./worker
+    volumes:
+      - ../src/worker:/app
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+
+
+# docker compose -f docker/docker-compose.yml down --rmi local
+# docker image prune -f
